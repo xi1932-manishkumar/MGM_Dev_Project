@@ -1,0 +1,2579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../css/main.css" />
+
+  <!-- Uses some of the css classes from dashboard  -->
+  <link rel="stylesheet" href="../../css/dashboard/dashboard.css" />
+  <link rel="stylesheet" href="../../css/incoming-submission/incoming-submission.css" />
+
+  <link rel="stylesheet" href="../../css/projDevReport/projectDevReport.css" />
+  <link rel="stylesheet" href="../../css/projDevReport/projRecord.css" />
+  <title>Project Report</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <div class="menu-hamburger">
+      <div class="pr-10" onclick="openNav()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16">
+          <defs>
+            <style>
+              .a {
+                fill: #fff;
+              }
+            </style>
+          </defs>
+          <path class="a" d="M4.5,25h24V22.333H4.5Zm0-6.667h24V15.667H4.5ZM4.5,9v2.667h24V9Z"
+            transform="translate(-4.5 -9)" />
+        </svg>
+      </div>
+      <div>
+        MGM Studio
+      </div>
+    </div>
+    <div class="nav-actions-container">
+      <div class="notifications-action pr-10">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20">
+          <defs>
+            <style>
+              .a {
+                fill: #fff;
+              }
+            </style>
+          </defs>
+          <path class="a"
+            d="M18.875,28.336a.671.671,0,0,0-.658.528,1.3,1.3,0,0,1-.259.564.979.979,0,0,1-.834.305,1,1,0,0,1-.834-.305,1.3,1.3,0,0,1-.259-.564.671.671,0,0,0-.658-.528h0a.675.675,0,0,0-.658.823,2.313,2.313,0,0,0,2.408,1.921,2.309,2.309,0,0,0,2.408-1.921.678.678,0,0,0-.658-.823Z"
+            transform="translate(-9.139 -11.08)" />
+          <path class="a"
+            d="M22.574,18.625c-.771-1.007-2.287-1.6-2.287-6.105,0-4.627-2.062-6.487-3.984-6.933-.18-.045-.31-.1-.31-.293V5.151a1.222,1.222,0,0,0-1.2-1.22h-.03a1.222,1.222,0,0,0-1.2,1.22v.144c0,.184-.13.248-.31.293-1.927.451-3.984,2.306-3.984,6.933,0,4.508-1.517,5.093-2.287,6.105a.984.984,0,0,0,.8,1.577h14.02A.984.984,0,0,0,22.574,18.625Zm-1.952.288H8.95a.217.217,0,0,1-.165-.362,6,6,0,0,0,1.051-1.656,11.147,11.147,0,0,0,.716-4.374,7.551,7.551,0,0,1,1.046-4.3,3.212,3.212,0,0,1,1.937-1.369,1.758,1.758,0,0,0,.931-.521.4.4,0,0,1,.6-.01A1.818,1.818,0,0,0,16,6.847a3.212,3.212,0,0,1,1.937,1.369,7.551,7.551,0,0,1,1.046,4.3,11.147,11.147,0,0,0,.716,4.374,6.071,6.071,0,0,0,1.076,1.681A.2.2,0,0,1,20.622,18.913Z"
+            transform="translate(-6.775 -3.93)" />
+        </svg>
+      </div>
+      <div class="avatar-action pl-10">
+        <div class="profile-picture">
+          <img src="../../assets/media/profile.svg" />
+        </div>
+        <div class="pl-10">
+          <span>Adam Zampa</span>
+          <span>
+            <img src="../../assets/media/down-arrow.svg" />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-container incoming-submission-page">
+    <div style="display: flex; justify-content: space-between;">
+      <div class="dashboard-welcome-title">Development Project</div>
+      <button id="addActionBtn" class="add-action_btn" style="margin-top: 70px; text-transform: uppercase;
+      display: block; position: relative;"
+          onclick="openActionItemNav()">Actionable
+        Items</button>
+    </div>
+    <section>
+      <div style="display: flex; justify-content: space-between;">
+        <h3 class="project-title">Bootsie's War</h3>
+        <div>
+          <button id="submissionBtn" class="project-tabs" style="margin-right: 8px;"
+            onclick="renderIncomingSubmn()">Incoming
+            Submission</button>
+          <button id="developmentBtn" class="project-tabs" onclick="renderDevProject()">Development
+            project</button>
+        </div>
+      </div>
+    </section>
+    <section id="view-incoming-sbmsn" style="display: none;">
+      <section>
+        <div class="submission-card">
+          <div class="submission-form-container">
+            <div style="height: 0px;">Select Submission Type</div>
+            <form class="submission-type-form">
+              <div class="form-control">
+                <label for="submission-type" style="display: none">Submission Type</label>
+                <br />
+                <div class="incoming-sub-page-divider">
+                  <div class="custom-select submission-type">
+                    <label for="submission-type" style="visibility: hidden">Submission Type</label>
+                    <select name="submission-type" id="submission-type" placeholder="Submission Type"
+                      onclick="displayTitle(this)" disabled>
+                      <option selected value="">People to know</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                  <div class="custom-select submission-detail">
+                    <label for="submission-detail" style="visibility: hidden">Writer</label>
+                    <select name="submission-detail" id="submission-detail" placeholder="Writer"
+                      onclick="displayTitle(this)">
+                      <option selected value="">Writer</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-control">
+                <label for="submission-type" style="display: none">Submission Type</label>
+                <br />
+                <div class="custom-select evaluation-status">
+                  <label for="evaluation-status" style="visibility: hidden">Evaluation Status</label>
+                  <select name="evaluation-status" id="evaluation-status" placeholder="Evaluation Status"
+                    onclick="displayTitle(this)">
+                    <option selected value="">Evaluation Status</option>
+                    <option value="Pass">Pass</option>
+                    <option value="Weak Consider">Weak Consider</option>
+                    <option value="Recommend">Recommend</option>
+                    <option value="Consider">Consider</option>
+                    <option value="N/A">N/A</option>
+                    <option value="Script Pass/Writer Consider">Script Pass/Writer Consider</option>
+                    <option value="Writer Pass/Script Consider">Writer Pass/Script Consider</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="submission-card">
+          <div class="check-row submission-form-container">
+            <div class="submission-status">
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 24 24" width="40">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  class="svg-color" fill="#247C4A" />
+              </svg>
+              <div>
+                <b class="txt-black">Needs Coverage</b>
+              </div>
+            </div>
+            <!-- <span class="dotted-line"></span> -->
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 24 24" width="40"
+                onclick="fillSvg(this)">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  class="svg-color" fill="#247C4A" />
+              </svg>
+              <div>
+                <b>Coverage Received</b>
+              </div>
+            </div>
+            <div style="height: 90px; min-width: 0px; border-right: 2px solid #ccc; position: absolute;"></div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 24 24" width="40">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
+                  fill="#AFAFAF" />
+              </svg>
+              <div>
+                <b>Pass on Project</b>
+              </div>
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 24 24" width="40">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                  fill="#247C4A" />
+              </svg>
+              <div>
+                <b>Convert to Project</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="incoming-sub-page-divider" style="display: flex;">
+        <div style="width: 50%;">
+          <section style="padding-right: 10px;">
+            <div class="submission-form-container submission-card">
+              <h3 style="margin-bottom: 0px">Incoming Submission New Record</h3>
+              <div class="submission-form">
+                <form>
+                  <div class="form-control">
+                    <label for="script-title" style="display: none">Show Name</label>
+                    <br />
+                    <input type="text" placeholder="Show Name" name="script-title" id="script-title"
+                      onclick="displayTitle(this)" />
+                  </div>
+                  <div class="form-control">
+                    <label for="date-submitted" style="display: none">Date Submitted</label>
+                    <br />
+                    <input type="date" placeholder="Date Submitted" name="date-submitted" id="date-submitted"
+                      onclick="displayTitle(this)" />
+                  </div>
+                  <div class="form-control">
+                    <label for="material-type" style="display: none">Material Type</label>
+                    <br />
+                    <input type="text" placeholder="Material Type" name="material-type" id="material-type"
+                      onclick="displayTitle(this)" />
+                  </div>
+                  <div class="form-control">
+                    <label for="submission-length" style="display: none">Submission Length</label>
+                    <br />
+                    <input type="text" placeholder="Submission Length" name="submission-length" id="submission-length"
+                      onclick="displayTitle(this)" />
+                  </div>
+                  
+                  <!-- <div class="form-control">
+                    <label for="submission-logline" style="display: none">Submission Logline</label>
+                    <br />
+                    <input type="text"   name="submission-logline" id="submission-logline" onclick="displayTitle(this)"
+                      placeholder="Submission Logline" rows="5"></input>
+                  </div> -->
+                  <div class="form-control">
+                    <label for="submission-summary" style="display: none">Submission Summary</label>
+                    <br />
+                    <textarea name="submission-summary" id="submission-summary" onclick="displayTitle(this)"
+                      placeholder="Submission Summary" rows="5"></textarea>
+                  </div>
+                  <div class="form-control form-btn-row">
+                    <button class="form-submit-btn" type="submit" disabled>
+                      UPDATE
+                    </button>
+                    <button class="form-cancel-btn">CANCEL</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="submission-form-container submission-card">
+              <form class="submission-type-form" style="align-items: flex-end;">
+                <div class="autocomplete">
+                  <label for="project-name" style="display: none">Project Name</label>
+                  <br />
+                  <input type="text" placeholder="Project Name" name="project-name" id="project-name" class="ac"
+                    onclick="displayTitle(this, true)" /></div>
+                <div class="custom-select">
+                  <label for="select-tier" style="visibility: hidden">Select Tier</label>
+                  <select name="select-tier" id="select-tier" placeholder="Select Tier" onclick="displayTitle(this)">
+                    <option selected value="">Select Tier</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                  </select>
+                </div>
+              </form>
+              <div class="item-list-footer">
+                <div style="text-align: right">
+                  <span>ADD MORE</span>
+                </div>
+              </div>
+            </div>
+            <div class="submission-form-container submission-form submission-card">
+              <form>
+                <div class="form-control">
+                  <label for="film-link" style="display: none">Film Link</label>
+                  <br />
+                  <input type="text" placeholder="Film Link" name="film-link" id="film-link"
+                    onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control" style="display: flex; justify-content: space-between; margin-top: 20px;">
+                  <div class="filmtitles">Does the film link require a password?</div>
+                  <div id="toggleSwitch">
+                    <label class="switch" style="padding-right: 35px;">
+                      <input type="checkbox" id="link-require-pwd" />
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-control">
+                  <label for="password" style="display: none">Password</label>
+                  <br />
+                  <input type="password" placeholder="Password" name="password" disabled id="password"
+                    onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control" style="display: flex; justify-content: space-between; margin-top: 20px;">
+                  <div class="filmtitles">Overall Deal?</div>
+                  <div id="toggleSwitch">
+                    <label class="switch" style="padding-right: 35px;">
+                      <input type="checkbox" id="overall-deal" />
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-control">
+                  <label for="lookup-deals" style="display: none">Lookup Deals</label>
+                  <br />
+                  <input type="text" placeholder="Lookup Deals" name="lookup-deals" disabled id="lookup-deals"
+                    onclick="displayTitle(this)" />
+                </div>
+              </form>
+            </div>
+            <div class="submission-card">
+              <div class="actionable-items">
+                <!-- <h3 id="actionable-items-scrollto">File Uploads<button class="details-btn">UPLOAD FILE(S)</button></h3> -->
+                <div class="form-control file-upload">
+                  <h3 id="actionable-items-scrollto">File Uploads</h3>
+                  <div>
+                    <input type="file" id="file" />
+                    <label for="file" class="details-btn">UPLOAD FILES</label>
+                  </div>
+                </div>
+                <section class="item-list">
+                  <ul>
+                    <li>
+                      <div class="action-item-file">
+                        <div class="action-item-description">
+                          <div>
+                            <p class="action-item-op-history">Script - Bootsie’s War_v002.pdf</p>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="action-item-op-history">04/10/2020 10:23AM Sandra Quinn</small>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="action-item-file">
+                        <div class="action-item-description">
+                          <div>
+                            <p class="action-item-op-history">
+                              Script - Bootsie’s War_v002.pdf
+                            </p>
+                          </div>
+                        </div>
+                        <div>
+                          <small class="action-item-op-history">04/10/2020 10:23AM Sandra Quinn</small>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div style="width: 50%;">
+          <section style="padding-left: 10px;">
+            <div class="submission-form-container submission-card">
+              <h3 style="margin-bottom: 0px">Incoming Submission Related Field</h3>
+              <div class="submission-form">
+                <form>
+                  <div class="autocomplete">
+                    <label for="writers-name" style="display: none"><b>Writer's Name</b></label>
+                    <br />
+                    <input type="text" placeholder="Writer's Name" name="writers-name" id="writers-name" class="ac"
+                      onclick="displayTitle(this, true)" />
+                  </div>
+                  <div class="autocomplete">
+                    <label for="associated-agency" style="display: none">Associated Agency/Agencies</label>
+                    <br />
+                    <input type="text" placeholder="Associated Agency/Agencies" name="associated-agency" class="ac"
+                      id="associated-agency" onclick="displayTitle(this, true)" />
+                  </div>
+                  <div class="autocomplete">
+                    <label for="submitted-by" style="display: none">Submitted By</label>
+                    <br />
+                    <input type="text" placeholder="Submitted By" name="submitted-by" id="submitted-by" class="ac"
+                      onclick="displayTitle(this, true)" />
+                  </div>
+                  <div class="autocomplete">
+                    <label for="representative" style="display: none">Representative</label>
+                    <br />
+                    <input type="text" placeholder="Representative" name="representative" id="representative" class="ac"
+                      onclick="displayTitle(this, true)" />
+                  </div>
+                  <div class="autocomplete">
+                    <label for="company-name" style="display: none">Company Name</label>
+                    <br />
+                    <input type="text" placeholder="Company Name" name="company-name" id="company-name" class="ac"
+                      onclick="displayTitle(this, true)" />
+                  </div>
+                  <div class="autocomplete">
+                    <label for="covered-by" style="display: none">Covered By</label>
+                    <br />
+                    <input type="text" placeholder="Covered By" name="covered-by" id="covered-by" class="ac"
+                      onclick="displayTitle(this, true)" />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="submission-form-container submission-card">
+              <div>
+                <h3 id="actionable-items-scrollto">
+                  Actionable Items
+                  <button class="details-btn" disabled>
+                    ADD ACTION ITEM
+                  </button>
+                  <!-- <div class="details-btn-container"> -->
+                  <!-- </div> -->
+                </h3>
+                <section class="item-list">
+
+
+                  <div class="action-item">
+                    <div class="action-item-op">
+                      <small>04/10/2020 10:23AM Sandra Quinn</small>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="action-item-description">
+                          <div>
+                            <p>
+                              Lorem Ipsum is simply dummy text of the printing and
+                              typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the 1500s,
+                              when an unknown printer took a galley of type and
+                              scrambled it to make a type specimen book.
+                            </p>
+                          </div>
+                        </div>
+                        <button class="edit-btn">Edit</button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="action-item action-item-disabled">
+                    <div class="action-item-op">
+                      <small>04/10/2020 10:23AM Sandra Quinn</small>
+                    </div>
+                    <ul>
+                      <li>
+                        <div class="action-item-description">
+                          <div>
+                            <p class="description-p">
+                              Lorem Ipsum is simply dummy text of the printing and
+                              typesetting industry. Lorem Ipsum has been the
+                              industry's standard dummy text ever since the 1500s,
+                              when an unknown printer took a galley of type and
+                              scrambled it to make a type specimen book.
+                            </p>
+                          </div>
+                        </div>
+                        <button class="edit-btn">Edit</button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item-list-footer">
+                    <div>
+                      <span>VIEW ALL</span>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="submission-form-container submission-card">
+              <div>
+                <h3 id="actionable-items-scrollto">History</h3>
+                <section class="item-list">
+                  <ul class="history-progress">
+                    <li class="history-progress-done">
+                      <div class="action-item-file">
+
+                        <div class="action-item-description">
+                          <div>
+                            <p class="action-item-op-history">New Incoming Submission Created</p>
+                            <small class="action-item-op-history">04/10/2020 10:23AM Sandra Quinn</small>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                    <li class="history-progress-done">
+                      <div class="action-item-file">
+
+
+                        <div class="action-item-description">
+                          <div>
+                            <p class="action-item-op-history">
+                              Incoming Submission Record (Submitted by) was updated.
+                            </p>
+                            <small class="action-item-op-history">04/10/2020 10:23AM Sandra Quinn</small>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                    <li class="history-progress-done">
+                      <div class="action-item-file">
+
+                        <div class="action-item-description">
+                          <div>
+                            <p class="action-item-op-history">
+                              Incoming Submission Record (Evaluation Status) was updated.
+                            </p>
+                            <small class="action-item-op-history">04/10/2020 10:23AM Sandra Quinn</small>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                    <div class="item-list-footer">
+                      <div>
+                        <span>VIEW ALL</span>
+                      </div>
+                    </div>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <section id="view-dev-project">
+      <section>
+        <div class="submission-card">
+          <div class="submission-form-container">
+            <div style="height: 0px;">Select MGM Development Status</div>
+            <form class="submission-type-form">
+              <div class="form-control">
+                <label for="submission-type" style="display: none">MGM Development Status</label>
+                <br />
+                <div class="incoming-sub-page-divider">
+                  <div class="custom-select">
+                    <label for="submission-type" style="visibility: hidden">MGM Development
+                      Status</label>
+                    <select name="submission-type" id="submission-type" placeholder="Submission Type"
+                      onclick="displayTitle(this)">
+                      <option selected value="">MGM Development Status</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-control project-status">
+                <div style="height: 0px; font-weight: bold; padding-left: 22px;">Project Status:</div>
+                <label for="submission-type" style="display: none">Submission Type</label>
+                <br />
+                <div class="project-status-switch">
+                  <div>Internal Development</div>
+                  <label class="switch" style="height: 48px;">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                  <div>Current Project</div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="current-project-tabs">
+          <button id="overview-btn" class="project-tabs record_tablinks" onclick="clickOverview()">Overview</button>
+          <button class="project-tabs" onclick="clickAttachments()">Attachments</button>
+          <button class="project-tabs" onclick="clickRoles()">Roles</button>
+          <button class="project-tabs" onclick="clickSubsOut()">Subs-Out</button>
+          <button class="project-tabs" onclick="clickSubsIn()">Subs-In</button>
+        </div>
+      </section>
+      <section id="overview-section">
+        <div class="current-project-card">
+          <div class="submission-form-container">
+            <h3>Development Project Overview</h3>
+            <div class="submission-form" style="display: flex; justify-content: space-between;">
+              <form style="padding-left: 30px; padding-right: 15px;">
+                <div class="form-control">
+                  <label for="script-title-overview" style="display: none"><b>Show Name</b></label>
+                  <br />
+                  <input type="text" placeholder="Show Name" name="script-title-overview" id="script-title-overview"
+                    onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control">
+                  <label for="submission-logline" style="display: none"><b>Submission Logline</b></label>
+                  <br />
+                  <textarea type="text"   name="submission-logline" id="submission-logline" onclick="displayTitle(this)"
+                    placeholder="Submission Logline" rows="4"></textarea>
+                </div>
+                <div class="form-control">
+                  <label for="submission-type" style="display: none"><b>Show Type</b></label>
+                  <br />
+                  <div class="incoming-sub-page-divider">
+                    <div class="custom-select">
+                      <label for="submission-type" style="visibility: hidden"><b>Show Type
+                        Status</b></label>
+                      <select name="submission-type" id="submission-type" placeholder="Submission Type"
+                        onclick="displayTitle(this)">
+                        <option selected value="">Show Type</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-control">
+                  <label for="submission-type" style="display: none">Series Type</label>
+                  <br />
+                  <div class="incoming-sub-page-divider">
+                    <div class="custom-select">
+                      <label for="submission-type" style="visibility: hidden"><b>Series Type
+                        Status</b></label>
+                      <select name="submission-type" id="submission-type" placeholder="Submission Type"
+                        onclick="displayTitle(this)">
+                        <option selected value="">Series Type</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-control">
+                  <label for="studio" style="display: none"><b>Studio</b></label>
+                  <br />
+                  <input type="text" placeholder="Studio" name="studio" id="studio" onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control">
+                  <label for="genre" style="display: none"><b>Genre</b></label>
+                  <br />
+                  <input type="text" placeholder="Genre" name="genre" id="genre" onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control overview-btn">
+                  <button class="form-submit-btn" type="submit">
+                    UPDATE
+                  </button>
+                  <button class="form-cancel-btn">CANCEL</button>
+                </div>
+              </form>
+              <form style="padding-left: 15px; padding-right: 30px;">
+                <div class="form-control">
+                  <label for="creative" style="display: none"><b>Creative</b></label>
+                  <br />
+                  <input type="text" placeholder="Creative" name="creative" id="creative"
+                    onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control">
+                  <label for="business-affairs" style="display: none"><b>Business Affairs</b></label>
+                  <br />
+                  <input type="text" placeholder="Business Affairs" name="business-affairs" id="business-affairs"
+                    onclick="displayTitle(this)" />
+                </div>
+                <div>
+                  <div style="display: flex;margin-top: 28px;">
+                    <label style="font-size: 14px; color: #3D3A3A;">With BA</label>
+                    <input type="checkbox" style="width:62px" id="c1" name="cb">
+                    <label for="c1"></label>
+                  </div>
+                  <small style="font-size: 12px;">Check Box if Applicable</small>
+                </div>
+                <div class="form-control">
+                  <label for="submission-type" style="display: none">Select BA Status</label>
+                  <br />
+                  <div class="incoming-sub-page-divider">
+                    <div class="custom-select">
+                      <label for="submission-type" style="visibility: hidden"><b>Select BA Status
+                        Status</b></label>
+                      <select name="submission-type" id="submission-type" placeholder="Submission Type"
+                        onclick="displayTitle(this)">
+                        <option selected value="">Select BA Status</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-control">
+                  <label for="network" style="display: none"><b>Network</b></label>
+                  <br />
+                  <input type="text" placeholder="Network" name="network" id="network" onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control">
+                  <label for="prod" style="display: none"><b>Production</b></label>
+                  <br />
+                  <input type="text" placeholder="Production" name="prod" id="prod" onclick="displayTitle(this)" />
+                </div>
+                <div class="form-control">
+                  <label for="prod-company" style="display: none"><b>Production Company</b></label>
+                  <br />
+                  <input type="text" placeholder="Production Company" name="prod-company" id="prod-company"
+                    onclick="displayTitle(this)" />
+                </div>
+              </form>
+            </div>
+          </div>
+      </section>
+      <section id="attachments-section" style="display: none;">
+        <div class="current-project-card">
+          <div class="submission-form-container">
+            <h3>Attachments</h3>
+            <div class="overview-form">
+              <form style="padding-left: 50px; padding-right: 15px;">
+                <div class="autocomplete">
+                  <label for="related-contacts" style="display: none"><b>Studio Executives</b></label>
+                  <br />
+                  <input type="text" placeholder="Studio Executives" name="related-contacts" id="related-contacts"
+                    class="ac" onclick="displayTitle(this, true)" />
+                </div>
+                <div class="autocomplete">
+                  <label for="network-executive" style="display: none"><b>Network Executives</b></label>
+                  <br />
+                  <input type="text" placeholder="Network Executives" name="network-executive" id="network-executive"
+                    class="ac" onclick="displayTitle(this, true)" />
+                </div>
+                <div class="autocomplete">
+                  <label for="executive-producer" style="display: none"><b>Executive Producers</b></label>
+                  <br />
+                  <input type="text" placeholder="Executive Producers" name="executive-producer" id="executive-producer"
+                    class="ac" onclick="displayTitle(this, true)" />
+                </div>
+                <div class="autocomplete">
+                  <label for="writer" style="display: none">Writer's Name</label>
+                  <br />
+                  <input type="text" placeholder="Writer's Name" name="writer" id="writer" class="ac"
+                    onclick="displayTitle(this, true)" />
+                </div>
+                <div class="autocomplete">
+                  <label for="director" style="display: none"><b>Directors</b></label>
+                  <br />
+                  <input type="text" placeholder="Directors" name="director" id="director" class="ac"
+                    onclick="displayTitle(this, true)" />
+                </div>
+                <div class="autocomplete">
+                  <label for="key-heads" style="display: none"><b>Key Department Heads</b></label>
+                  <br />
+                  <input type="text" placeholder="Key Department Heads" name="key-heads" id="key-heads" class="ac"
+                    onclick="displayTitle(this, true)" />
+                </div>
+                <div class="autocomplete">
+                  <label for="reg-cost" style="display: none"><b>Regular Cost</b></label>
+                  <br />
+                  <input type="text" placeholder="Regular Cost" name="reg-cost" id="reg-cost" class="ac"
+                    onclick="displayTitle(this, true)" />
+                </div>
+
+
+                <div class="form-control overview-btn">
+                  <button class="form-submit-btn" type="submit">
+                    UPDATE
+                  </button>
+                  <button class="form-cancel-btn">CANCEL</button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="roles-section" style="display: none;">
+        <div class="current-project-card">
+          <div class="submission-form-container">
+            <div style="display: flex; justify-content: space-between;">
+              <h3>Roles</h3>
+              <button id="addRoleBtn" class="add-role_btn" style="text-transform: uppercase;">
+                <img class="add-circle" src="../../assets/media/add-circle-outline.svg" />
+                Add New Role</button>
+            </div>
+
+            <table class="submission-table">
+              <tr class="submission-table-tr">
+                <th></th>
+                <th>
+                  <hr class="rowHrStyle">Character Name <img onclick="myFunction(event)" class="filter-icon"
+                    src="../../assets/media/filter.svg" />
+
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Character Type <img onclick="myFunction(event)" class="filter-icon"
+                    src="../../assets/media/filter.svg" />
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Character Description <img onclick="myFunction(event)" class="filter-icon"
+                    src="../../assets/media/filter.svg" />
+                </th>
+                <th>
+                  <hr class="rowHrStyle" style="margin-left: 40px;">Actor Name<img onclick="myFunction(event)"
+                    class="filter-icon" src="../../assets/media/filter.svg" />
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Representative &nbsp; <img onclick="myFunction(event)" class="filter-icon"
+                    src="../../assets/media/filter.svg" /></th>
+                <th>
+                  <hr class="rowHrStyle">Notes <img onclick="myFunction(event)" class="filter-icon"
+                    src="../../assets/media/filter.svg" />
+                </th>
+              </tr>
+              <tr style="display: none;" id="addedRole" class="filled-row">
+                <td>
+                  <div class="profile-picture picture-row">
+                    <img src="../../assets/media/profile.svg" />
+                  </div>
+                </td>
+                <td>Oraetta Mayflower</td>
+                <td>Series Regular</td>
+                <td class="tooltip">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy …
+                  <span class="tooltiptext">elitr, sed diam nonumy eirmod tempor invidunt ut.</span>
+                </td>
+                <td>Ben Whishaw</td>
+                <td>Ben Whishaw</td>
+                <td>
+                  <div class="dropdown">
+                    Closed
+                    <span class="context-menu dropbtn" data-container-id="context-menu-items" data-row-id="2"></span>
+                    <div class="dropdown-content">
+                      <p href="#" id="editSubmenu">Edit</p>
+                      <p href="#" id="delSubmenu">Delete</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="9">
+                  <div class="no-data-record" id="blankRow">
+                    <img src="../../assets/media/filter.svg" />
+                    <p>We couldn't find any roles added</p>
+                  </div>
+                </td>
+              </tr>
+
+
+
+            </table>
+            <div class="table-options">
+              <div class="table-options_num">Rows per page</div>
+              <div class="table-options_num">
+                <select name="rows">
+                  <option selected value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+              <div class="table-options_num2">1-10 of 37</div>
+              <span class="pagination">
+                <img src="../../assets/media/last.svg" />
+                <img src="../../assets/media/prev.svg" style="transform: rotate(180deg)" />
+                <img src="../../assets/media/next.svg" />
+                <img src="../../assets/media/start.svg" />
+              </span>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </section>
+      <section id="subsout-section" style="display: none;">
+        <div class="current-project-card">
+          <div class="submission-form-container">
+            <div style="display: flex; justify-content: space-between;">
+              <h3>Sub-Out</h3>
+              <button id="addSubOutBtn" class="add-role_btn" style="text-transform: uppercase;">
+                <img class="add-circle" src="../../assets/media/add-circle-outline.svg" />
+                Add Subs-out</button>
+            </div>
+            <table class="submission-table">
+              <tr class="submission-table-tr">
+                <th>Network <img onclick="myFunction(event)" class="filter-icon" src="../../assets/media/filter.svg" />
+                  <hr style="width: 1px; height: 20px; display: inline; margin-left: 22px;border: 1px solid #D3D3D3;
+                              opacity: 1;">
+                </th>
+                <th>Executives <img onclick="myFunction(event)" class="filter-icon"
+                    src="../../assets/media/filter.svg" />
+                  <hr style="width: 1px; height: 20px; display: inline; margin-left: 100px;border: 1px solid #D3D3D3;
+                              opacity: 1;">
+                </th>
+                <th>Date Sent <img onclick="myFunction(event)" class="filter-icon"
+                    src="../../assets/media/filter.svg" />
+                  <hr style="width: 1px; height: 20px; display: inline; margin-left: 11px;border: 1px solid #D3D3D3;
+                              opacity: 1;">
+                </th>
+                <th>Status<img onclick="myFunction(event)" class="filter-icon" src="../../assets/media/filter.svg" />
+                  <hr style="width: 1px; height: 20px; display: inline; margin-left: 9px;border: 1px solid #D3D3D3;
+                              opacity: 1;">
+                </th>
+                <th>Notes <img onclick="myFunction(event)" class="filter-icon" src="../../assets/media/filter.svg" />
+                </th>
+              </tr>
+              <tr style="display: none;" id="addedSubout" class="filled-row">
+                <td>
+                  Apple
+                </td>
+                <td>
+                  Janet Lee
+                </td>
+                <td>
+                  09/09/2020
+                </td>
+                <td>
+                  Passed
+                </td>
+                <td>
+                  <div class="dropdown">
+                    Not buying anthology series
+                    <span class="context-menu dropbtn" data-container-id="context-menu-items" data-row-id="2"></span>
+                    <div class="dropdown-content">
+                      <p href="#" id="editSuboutData">Edit</p>
+                      <p href="#" id="delsuboutData">Delete</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="9">
+                  <div class="no-data-record" id="subblankRow">
+                    <img src="../../assets/media/filter.svg" />
+                    <p>We couldn't find any roles added</p>
+                  </div>
+                </td>
+              </tr>
+
+
+            </table>
+            <div class="table-options">
+              <div class="table-options_num">Rows per page</div>
+              <div class="table-options_num">
+                <select name="rows">
+                  <option selected value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+              <div class="table-options_num2">1-10 of 37</div>
+              <span class="pagination">
+                <img src="../../assets/media/last.svg" />
+                <img src="../../assets/media/prev.svg" style="transform: rotate(180deg)" />
+                <img src="../../assets/media/next.svg" />
+                <img src="../../assets/media/start.svg" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="subsin-section" style="display: none;">
+        <div class="current-project-card">
+          <div class="submission-form-container">
+            <div style="display: flex; justify-content: space-between;">
+              <h3>Subs-In</h3>
+              <button id="addSubInBtn" class="add-role_btn" style="text-transform: uppercase;">
+                <img class="add-circle" src="../../assets/media/add-circle-outline.svg" />
+                Add Subs-In</button>
+            </div>
+            <table class="submission-table">
+              <tr class="submission-table-tr">
+                <th>Type. <img class="filter-icon" src="../../assets/media/filter.svg" />
+
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Name<img class="filter-icon" src="../../assets/media/filter.svg" />
+
+
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Credits<img class="filter-icon" src="../../assets/media/filter.svg" />
+
+
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Representatives<img class="filter-icon" src="../../assets/media/filter.svg" />
+
+
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Sub by &nbsp; <img class="filter-icon" src="../../assets/media/filter.svg" />
+
+
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Sub To<img class="filter-icon" src="../../assets/media/filter.svg" />
+
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Sub Date<img class="filter-icon" src="../../assets/media/filter.svg" />
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Tier<img class="filter-icon" src="../../assets/media/filter.svg" />
+                </th>
+                <th>
+                  <hr class="rowHrStyle">Notes<img class="filter-icon" src="../../assets/media/filter.svg" />
+                </th>
+              </tr>
+              <tr style="display: none;" class="blank_row" id="subsInData">
+                <td>Director</td>
+                <td>Jannet Lee</td>
+                <td>A Girl Walks Home..</td>
+                <td>Dale Styen</td>
+                <td>Ryan Harris</td>
+                <td>Harris Sohail</td>
+                <td>09/09/2020</td>
+                <td>Tier 1</td>
+                <td>
+                  <div class="dropdown" style="margin-left: 40px">
+                    <span class="context-menu dropbtn" data-container-id="context-menu-items" data-row-id="2"></span>
+                    <div class="dropdown-content">
+                      <p href="#" id="subin-edit">Edit</p>
+                      <p href="#" id="subin-del">Delete</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="9">
+                  <div class="no-data-record" id="subsInBlank">
+                    <img src="../../assets/media/filter.svg" />
+                    <p>We couldn't find any roles added</p>
+                  </div>
+                </td>
+              </tr>
+
+
+            </table>
+            <div class="table-options">
+              <div class="table-options_num">Rows per page</div>
+              <div class="table-options_num">
+                <select name="rows">
+                  <option selected value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+              <div class="table-options_num2">1-10 of 37</div>
+              <span class="pagination">
+                <img src="../../assets/media/last.svg" />
+                <img src="../../assets/media/prev.svg" style="transform: rotate(180deg)" />
+                <img src="../../assets/media/next.svg" />
+                <img src="../../assets/media/start.svg" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- The Modal -->
+      <div id="addRoleModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-heading">
+            <div class="modal-title">Add New Role</div>
+            <span class="close">&times;</span>
+          </div>
+          <div class="addRole-form" style="display: flex; justify-content: space-between;">
+            <form>
+              <div class="form-control">
+                <label for="char-name" style="display: none">Character Name</label>
+                <br />
+                <input type="text" placeholder="Character Name" name="char-name" id="char-name"
+                  onclick="displayTitle(this)" />
+              </div>
+              <div class="form-control">
+                <label for="submission-type" style="display: none">Character Type</label>
+                <br />
+                <div class="incoming-sub-page-divider">
+                  <div class="custom-select">
+                    <label for="submission-type" style="visibility: hidden">Character Type
+                      Status</label>
+                    <select name="submission-type" id="submission-type" placeholder="Submission Type"
+                      onclick="displayTitle(this)">
+                      <option selected value="">Character Type</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="autocomplete">
+                <label for="actor-name" style="display: none">Actor Name</label>
+                <br />
+                <input type="text" placeholder="Actor Name" name="actor-name" id="actor-name" class="ac"
+                  onclick="displayTitle(this, true)" />
+              </div>
+              <div class="autocomplete">
+                <label for="representatives" style="display: none">Representatives</label>
+                <br />
+                <input type="text" placeholder="Representatives" name="representatives" id="representatives" class="ac"
+                  onclick="displayTitle(this, true)" />
+              </div>
+              <div class="form-control">
+                <label for="char-desc" style="display: none">Character Description</label>
+                <br />
+                <textarea type="text" placeholder="Character Description" name="char-desc" id="char-desc"
+                  onclick="displayTitle(this)" rows="5"></textarea>
+              </div>
+              <div class="form-control">
+                <label for="role-notes" style="display: none">Notes</label>
+                <br />
+                <textarea type="text" placeholder="Notes" name="role-notes" id="role-notes" onclick="displayTitle(this)"
+                  rows="5"></textarea>
+              </div>
+              <div style="margin-top: 20px;">
+                <label style="font-size: 16px;">Add Image</label>
+                <div class="form-control">
+                  <label class="custom-file-upload">
+                    <input type="file" accept="image/*" id="image-upload" onchange="loadFile(event)">
+                    <img id="output" class="custom-file-upload" src="" />
+                    <p id="browse" class="browse-image">BROWSE IMAGE</p>
+                  </label>
+                  <span class="cross-button" onclick="removeImage()"><img
+                      src="../../assets/media/Icon material-close.svg" /></span>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="form-control modal-btn-row">
+            <button id="role-save-btn" class="form-submit-btn" type="submit">
+              SAVE
+            </button>
+            <button id="role-cancel-btn" class="form-cancel-btn">CANCEL</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- The Modal -->
+      <div id="addSubsOutModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-heading">
+            <div class="modal-title">Add Subs Out</div>
+            <span id="subsoutmodal-close" class="close">&times;</span>
+          </div>
+          <div class="addRole-form" style="display: flex; justify-content: space-between;">
+            <form>
+              <div class="form-control">
+                <label for="subout-network" style="display: none">Select a Network</label>
+                <br />
+                <div class="incoming-sub-page-divider">
+                  <div class="custom-select">
+                    <label for="subout-network" style="visibility: hidden"><b>Select a Network
+                      Status</b></label>
+                    <select name="subout-network" id="subout-network" placeholder="Select a Network"
+                      onclick="displayTitle(this)">
+                      <option selected value="">Select a Network</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="autocomplete">
+                <label for="subsout-exec" style="display: none"><b>Executives</b></label>
+                <br />
+                <input type="text" placeholder="Executives" name="subsout-exec" id="subsout-exec" class="ac"
+                  onclick="displayTitle(this, true)" />
+              </div>
+              <div class="form-control">
+                <label for="subsout-date" style="display: none"><b>Date Sent</b></label>
+                <br />
+                <input type="date" placeholder="Date Sent" name="subsout-date" id="subsout-date"
+                  onclick="displayTitle(this)" />
+              </div>
+              <div class="form-control">
+                <label for="subsout-status" style="display: none">Status</label>
+                <br />
+                <div class="incoming-sub-page-divider">
+                  <div class="custom-select">
+                    <label for="subsout-status" style="visibility: hidden"><b>Status</b>
+                      </label>
+                    <select name="subsout-status" id="subsout-status" placeholder="Status" onclick="displayTitle(this)">
+                      <option selected value=""><b>Status</b></option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-control">
+                <label for="subsout-notes" style="display: none"><b>Notes</b></label>
+                <br />
+                <textarea type="text" placeholder="Notes" name="subsout-notes" id="subsout-notes"
+                  onclick="displayTitle(this)" rows="5"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="form-control modal-btn-row">
+            <button id="subout-save-btn" class="form-submit-btn" type="submit">
+              SAVE
+            </button>
+            <button id="subout-cancel-btn" class="form-cancel-btn">CANCEL</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- The Modal -->
+      <div id="addSubInModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-heading">
+            <div class="modal-title">Add Subs-In</div>
+            <span id="subinmodal-close" class="close">&times;</span>
+          </div>
+          <div class="addRole-form" style="display: flex; justify-content: space-between;">
+            <form>
+              <div class="form-control">
+                <label for="subin-type" style="display: none">Type</label>
+                <br />
+                <div class="incoming-sub-page-divider">
+                  <div class="custom-select">
+                    <label for="subin-type" style="visibility: hidden"><b>Type
+                      Status</b></label>
+                    <select name="subin-type" id="subin-type" placeholder="Type" onclick="displayTitle(this)">
+                      <option selected value="">Type</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-control">
+                <label for="subin-name" style="display: none"><b>Name</b></label>
+                <br />
+                <input type="text" placeholder="Name" name="subin-name" id="subin-name" onclick="displayTitle(this)" />
+              </div>
+              <div class="form-control">
+                <label for="subin-credit" style="display: none"><b>Credits</b></label>
+                <br />
+                <textarea type="text" placeholder="Credits" name="subin-credit" id="subin-credit"
+                  onclick="displayTitle(this)" rows="5"></textarea>
+              </div>
+              <div class="autocomplete">
+                <label for="subin-rep" style="display: none"><b>Representatives</b></label>
+                <br />
+                <input type="text" placeholder="Representatives" name="subin-rep" id="subin-rep" class="ac"
+                  onclick="displayTitle(this, true)" />
+              </div>
+              <div class="autocomplete">
+                <label for="subinBy" style="display: none"><b>Submitted By</b></label>
+                <br />
+                <input type="text" placeholder="Submitted By" name="subinBy" id="subinBy" class="ac"
+                  onclick="displayTitle(this, true)" />
+              </div>
+              <div class="autocomplete">
+                <label for="subinTo" style="display: none"><b>Submitted To</b></label>
+                <br />
+                <input type="text" placeholder="Submitted To" name="subinTo" id="subinTo" class="ac"
+                  onclick="displayTitle(this, true)" />
+              </div>
+              <div class="form-control">
+                <label for="subin-date" style="display: none"><b>Submission Date</b></label>
+                <br />
+                <input type="date" placeholder="Submission Date" name="subin-date" id="subin-date"
+                  onclick="displayTitle(this)" />
+              </div>
+              <div class="form-control">
+                <label for="subin-tier" style="display: none">Tier</label>
+                <br />
+                <div class="incoming-sub-page-divider">
+                  <div class="custom-select">
+                    <label for="subin-tier" style="visibility: hidden"><b>Tier
+                      Status</b></label>
+                    <select name="subin-tier" id="subin-tier" placeholder="Tier" onclick="displayTitle(this)">
+                      <option selected value="">Tier</option>
+                      <option value="A">Tier 1</option>
+                      <option value="B">Tier 2</option>
+                      <option value="C">Tier 3</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="form-control modal-btn-row">
+            <button id="subin-save-btn" class="form-submit-btn" type="submit">
+              SAVE
+            </button>
+            <button id="subin-cancel-btn" class="form-cancel-btn">CANCEL</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- The Modal -->
+      <div id="deleteModal" class="modal" style="padding-top: 200px;">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-heading">
+            <div class="modal-title">Warning!</div>
+            <span class="close">&times;</span>
+
+          </div>
+          <div style="margin-top: 20px;">Are you sure you want to delete this record?</div>
+          <div class="form-control modal-btn-row">
+            <button id="role-save-btn" class="form-submit-btn" type="submit" onclick="deleteRow()">
+              DELETE
+            </button>
+            <button id="del-cancel-btn" class="form-cancel-btn">CANCEL</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- The Modal -->
+      <div id="deleteSubModal" class="modal" style="padding-top: 200px;">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-heading">
+            <div class="modal-title">Warning!</div>
+            <span class="close">&times;</span>
+
+          </div>
+          <div style="margin-top: 20px;">Are you sure you want to delete this record?</div>
+          <div class="form-control modal-btn-row">
+            <button id="subout-save" class="form-submit-btn" type="submit" onclick="deleteData()">
+              DELETE
+            </button>
+            <button id="subout-cancel" class="form-cancel-btn">CANCEL</button>
+          </div>
+        </div>
+
+      </div>
+      <!-- The Modal -->
+      <div id="deleteSubinModal" class="modal" style="padding-top: 200px;">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-heading">
+            <div class="modal-title">Warning!</div>
+            <span class="close">&times;</span>
+
+          </div>
+          <div style="margin-top: 20px;">Are you sure you want to delete this record?</div>
+          <div class="form-control modal-btn-row">
+            <button id="subin-save" class="form-submit-btn" type="submit" onclick="deleteSubin()">
+              DELETE
+            </button>
+            <button id="subin-cancel" class="form-cancel-btn">CANCEL</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+
+
+  <div id="actionItemSidenav" class="actionSidenav">
+    <div class="sidenav-menu">
+      <div>
+        <div class="actionable-items">
+          <div id="actionable-items-scrollto" class="actionable-items-scrollto">Actionable Items
+            <a href="javascript:void(0)" class="closebtn" onclick="closeActionItemNav()">&times;</a></div>
+          
+            <div class="form-parent">
+          <div class="form-control">
+            <label for="add-action-item"  style="display: none">Add New Action Item</label>
+            <br />
+            <textarea style="overflow: hidden" name="add-action-item" id="add-action-item" onclick="displayTitle(this)"
+              placeholder="Add Action Item" rows="5"></textarea>
+          </div>
+          <div class="modal-heading">
+            <div class="modal-text">Does the Action have a due date?</div>
+            <div>
+              <label class="switch">
+                <input type="checkbox" id="req-due-date" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <div class="form-control">
+            <label for="due-date" style="display: none">Due Date</label>
+            <br />
+            <input type="date" placeholder="Due Date" name="due-date" id="due-date" disabled />
+          </div>
+          <div class="form-control" style="width: 465px;">
+            <label for="select-status" style="display: none">Select Status</label>
+            <br />
+            <div class="custom-select">
+              <label for="select-status" style="visibility: hidden">Select Status</label>
+              <select name="select-status" id="select-status" placeholder="select status" onclick="displayTitle(this)">
+                <option selected value="">Select Status</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Pending">Pending</option>
+                <option value="Complete">Complete</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-control">
+            <div class="form-control form-btn-row">
+              <button class="form-submit-btn" type="submit" onclick="closeActionItemNav()">SAVE</button>
+              <button class="form-cancel-btn" onclick="closeActionItemNav()">CANCEL</button>
+            </div>
+          </div>
+        </div>
+          <!-- <hr /> -->
+          <section class="item-list">
+            <div class="item-content">
+              <div class="action-item">
+                <div class="action-item-op">
+                  <small>04/10/2020 10:23AM Sandra Quinn</small>
+                </div>
+                <div class="action-item-description">
+                  <div class="description-p">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                  </div>
+                  <div id="action-item-date"
+                    style="background-color: #A81616; font-size: 14px; color: #FFFFFF; 
+                                    padding: 8px 9px 5px 9px; border-radius: 8px; width: fit-content; margin-top: 10px;">Due
+                    Date - 02/10/2020</div>
+
+                  <div class="actionsidenav-btn-container">
+                    <button id="myBtn" class="edit-btn" onclick="editButton()">EDIT</button>
+                  </div>
+                </div>
+              </div>
+              <div class="action-item">
+                <div class="action-item-op">
+                  <small>04/10/2020 10:23AM Sandra Quinn</small>
+                </div>
+                <div class="action-item-description">
+                  <div class="description-p">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                  </div>
+                  <div id="action-item-date"
+                    style="background-color: #BA6E2C; font-size: 14px; color: #FFFFFF; 
+                                    padding: 8px 9px 5px 9px; border-radius: 8px; width: fit-content; margin-top: 10px;">Due
+                    Date - 02/10/2020</div>
+
+                  <div class="actionsidenav-btn-container">
+                    <button id="myBtn" class="edit-btn" onclick="editButton()">EDIT</button>
+                  </div>
+                </div>
+              </div>
+              <div class="action-item">
+                <div class="action-item-op">
+                  <small>04/10/2020 10:23AM Sandra Quinn</small>
+                </div>
+                <div class="action-item-description">
+                  <div class="description-p">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                  </div>
+                  <div id="action-item-date"
+                    style="background-color: #247C4A; font-size: 14px; color: #FFFFFF; 
+                                    padding: 8px 9px 5px 9px; border-radius: 8px; width: fit-content; margin-top: 10px;">Due
+                    Date - 02/10/2020</div>
+
+                  <div class="actionsidenav-btn-container">
+                    <button id="myBtn" class="edit-btn" onclick="editButton()">EDIT</button>
+                  </div>
+                </div>
+              </div>
+              <div class="action-item action-item-disabled">
+                <div class="action-item-op">
+                  <small>04/10/2020 10:23AM Sandra Quinn</small>
+                </div>
+                <div class="action-item-description">
+                  <div class="description-p">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                  </div>
+                  <div id="action-item-date"
+                    style="background-color: #247C4A; font-size: 14px; color: #FFFFFF; 
+                                    padding: 8px 9px 5px 9px; border-radius: 8px; width: fit-content; margin-top: 10px;">Due
+                    Date - 02/10/2020</div>
+
+                  <div class="actionsidenav-btn-container">
+                    <button id="myBtn" class="edit-btn" onclick="editButton()">EDIT</button>
+                  </div>
+                </div>
+              </div>
+              <div class="action-item action-item-disabled">
+                <div class="action-item-op">
+                  <small>04/10/2020 10:23AM Sandra Quinn</small>
+                </div>
+                <div class="action-item-description">
+                  <div class="description-p">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                  </div>
+                  <div id="action-item-date"
+                    style="background-color: #247C4A; font-size: 14px; color: #FFFFFF; 
+                                    padding: 8px 9px 5px 9px; border-radius: 8px; width: fit-content; margin-top: 10px;">Due
+                    Date - 02/10/2020</div>
+
+                  <div class="actionsidenav-btn-container">
+                    <button id="myBtn" class="edit-btn" onclick="editButton()">EDIT</button>
+                  </div>
+                </div>
+              </div>
+          </section>
+          </section>
+          <hr />
+        </div>
+      </div>
+    </div>
+    <div class="sidenav-overlay" onclick="closeActionItemNav()"></div>
+  </div>
+  <script>
+
+    // Get the modal
+    var modal = document.getElementById("deleteModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("delSubmenu");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    var delcancelBtn = document.getElementById("del-cancel-btn");
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    delcancelBtn.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    function deleteRow() {
+      var elm = document.getElementById('addedRole');
+      elm.style.display = "none";
+      document.getElementById('deleteModal').style.display = "none";
+      document.getElementById('blankRow').style.display = "inline-block";
+      console.log(e.parentNode);
+    }
+
+
+    // Get the modal
+    var delSubmodal = document.getElementById("deleteSubModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("delsuboutData");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    var delcancelBtn = document.getElementById("subout-cancel");
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+      delSubmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      delSubmodal.style.display = "none";
+    }
+
+    delcancelBtn.onclick = function () {
+      delSubmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == delSubmodal) {
+        delSubmodal.style.display = "none";
+      }
+    }
+
+    function deleteData() {
+      var elm = document.getElementById('addedSubout');
+      elm.style.display = "none";
+      document.getElementById('deleteSubModal').style.display = "none";
+      document.getElementById('subblankRow').style.display = "inline-block";
+      console.log(e.parentNode);
+    }
+
+
+    // Get the modal
+    var delSubinmodal = document.getElementById("deleteSubinModal");
+
+    // Get the button that opens the modal
+    var subinDel = document.getElementById("subin-del");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    var cancelSubin = document.getElementById("subin-cancel");
+
+    // When the user clicks the button, open the modal 
+    subinDel.onclick = function () {
+      delSubinmodal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      delSubinmodal.style.display = "none";
+    }
+
+    cancelSubin.onclick = function () {
+      delSubinmodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == delSubinmodal) {
+        delSubinmodal.style.display = "none";
+      }
+    }
+
+    function deleteSubin() {
+      var elm = document.getElementById('subsInData');
+      elm.style.display = "none";
+      document.getElementById('deleteSubinModal').style.display = "none";
+      document.getElementById('subsInBlank').style.display = "inline-block";
+      console.log(e.parentNode);
+    }
+
+    var loadFile = function (event) {
+      var output = document.getElementById('output');
+      document.getElementById("browse").style.display = "none";
+      output.src = URL.createObjectURL(event.target.files[0]);
+      output.onload = function () {
+        URL.revokeObjectURL(output.src) // to free memory
+      }
+      if (document.getElementById("output").src != "") {
+        document.getElementsByClassName('cross-button')[0].style.display = 'inline';
+      }
+    };
+
+    function removeImage(event) {
+      document.querySelector('.cross-button').addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+      var fileInput = document.getElementById("image-upload");
+      var output = document.getElementById("output").src = "";
+      document.getElementsByClassName('cross-button')[0].style.display = 'none';
+      document.getElementById("browse").style.display = "block";
+      fileInput.value = "";
+    }
+
+    document.getElementById("req-due-date").onchange = function () {
+      document.getElementById("due-date").disabled = !this.checked;
+    };
+    document.getElementById("link-require-pwd").onchange = function () {
+      document.getElementById("password").disabled = !this.checked;
+    };
+    document.getElementById("overall-deal").onchange = function () {
+      document.getElementById("lookup-deals").disabled = !this.checked;
+    };
+    document.getElementById("req-due-date").onchange = function () {
+      document.getElementById("due-date").disabled = !this.checked;
+    };
+
+
+    // Get the modal
+    var roleModal = document.getElementById("addRoleModal");
+
+    var roleModalData = document.getElementById("addedRole");
+
+    // Get the button that opens the modal
+    var roleBtn = document.getElementById("addRoleBtn");
+    var editSubmenu = document.getElementById("editSubmenu");
+
+    var rolesaveBtn = document.getElementById("role-save-btn");
+    var rolecancelBtn = document.getElementById("role-cancel-btn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    roleBtn.onclick = function () {
+      roleModal.style.display = "block";
+    }
+
+    editSubmenu.onclick = function () {
+      roleModal.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      roleModal.style.display = "none";
+    }
+    rolesaveBtn.onclick = function () {
+      console.log("button clickd");
+      roleModal.style.display = "none";
+      roleModalData.style.display = "contents";
+      document.getElementById('blankRow').style.display = "none";
+    }
+    rolecancelBtn.onclick = function () {
+      roleModal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == suboutModal) {
+        roleModal.style.display = "none";
+      }
+    }
+
+
+    //Get the Subs-out modal
+    var suboutModal = document.getElementById("addSubsOutModal");
+    var subModalData = document.getElementById("addedSubout");
+
+    // Get the button that opens the modal
+    var suboutBtn = document.getElementById("addSubOutBtn");
+    var editSubout = document.getElementById("editSuboutData");
+
+    var suboutsaveBtn = document.getElementById("subout-save-btn");
+    var suboutcancelBtn = document.getElementById("subout-cancel-btn");
+
+    // Get the <span> element that closes the modal
+    var subsoutClose = document.getElementById("subsoutmodal-close");
+
+    // When the user clicks the button, open the modal 
+    suboutBtn.onclick = function () {
+      suboutModal.style.display = "block";
+    }
+    editSubout.onclick = function () {
+      suboutModal.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    subsoutClose.onclick = function () {
+      suboutModal.style.display = "none";
+    }
+    suboutsaveBtn.onclick = function () {
+      console.log("button clickd");
+      suboutModal.style.display = "none";
+      subModalData.style.display = "contents";
+      document.getElementById('subblankRow').style.display = "none";
+    }
+    suboutcancelBtn.onclick = function () {
+      suboutModal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == suboutModal) {
+        suboutModal.style.display = "none";
+      }
+    }
+
+
+    //Get the Subs-In modal
+    var subinModal = document.getElementById("addSubInModal");
+    var subinDataModal = document.getElementById("subsInData");
+
+    // Get the button that opens the modal
+    var subinBtn = document.getElementById("addSubInBtn");
+    var editSubinData = document.getElementById("subin-edit");
+
+    var subinsaveBtn = document.getElementById("subin-save-btn");
+    var subincancelBtn = document.getElementById("subin-cancel-btn");
+
+    // Get the <span> element that closes the modal
+    var subinClose = document.getElementById("subinmodal-close");
+
+    // When the user clicks the button, open the modal 
+    subinBtn.onclick = function () {
+      subinModal.style.display = "block";
+    }
+
+    editSubinData.onclick = function () {
+      subinModal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    subinClose.onclick = function () {
+      subinModal.style.display = "none";
+    }
+    subinsaveBtn.onclick = function () {
+      console.log("button clickd");
+      subinModal.style.display = "none";
+      subinDataModal.style.display = "contents";
+      document.getElementById('subsInBlank').style.display = "none";
+    }
+    subincancelBtn.onclick = function () {
+      subinModal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == subinModal) {
+        subinModal.style.display = "none";
+      }
+    }
+
+
+    /* Set the width of the side navigation to 250px */
+    function openActionItemNav() {
+      document.getElementById("actionItemSidenav").style.width = "100%";
+      document.querySelector(".sidenav-menu").style.display = "block";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeActionItemNav() {
+      document.querySelector(".sidenav-menu").style.display = "none";
+      document.getElementById("actionItemSidenav").style.width = "0";
+    }
+
+    function renderIncomingSubmn() {
+      document.getElementById("view-incoming-sbmsn").style.display = "block";
+      document.getElementById("view-dev-project").style.display = "none";
+      document.getElementById("addActionBtn").style.display = "none";
+      document.getElementById("developmentBtn").classList.remove("record_tablinks");
+    }
+
+    function renderDevProject() {
+      document.getElementById("view-incoming-sbmsn").style.display = "none";
+      document.getElementById("view-dev-project").style.display = "block";
+      document.getElementById("addActionBtn").style.display = "block";
+    }
+
+    function clickOverview() {
+      console.log("Clicked overview");
+      if (document.getElementById("overview-section").style.display = "none") {
+        document.getElementById("overview-section").style.display = "block";
+      }
+      document.getElementById("attachments-section").style.display = "none";
+      document.getElementById("roles-section").style.display = "none";
+      document.getElementById("subsout-section").style.display = "none";
+      document.getElementById("subsin-section").style.display = "none";
+    }
+
+    function clickAttachments() {
+      document.getElementById("overview-section").style.display = "none";
+      document.getElementById("roles-section").style.display = "none";
+      document.getElementById("subsout-section").style.display = "none";
+      document.getElementById("subsin-section").style.display = "none";
+      document.getElementById("overview-btn").classList.remove("record_tablinks");
+      if (document.getElementById("attachments-section").style.display = "none") {
+        document.getElementById("attachments-section").style.display = "block";
+      }
+    }
+
+    function clickRoles() {
+      document.getElementById("overview-section").style.display = "none";
+      document.getElementById("attachments-section").style.display = "none";
+      document.getElementById("subsout-section").style.display = "none";
+      document.getElementById("subsin-section").style.display = "none";
+      document.getElementById("overview-btn").classList.remove("record_tablinks");
+      if (document.getElementById("roles-section").style.display = "none") {
+        document.getElementById("roles-section").style.display = "block";
+      }
+    }
+    function clickSubsOut() {
+      document.getElementById("overview-section").style.display = "none";
+      document.getElementById("attachments-section").style.display = "none";
+      document.getElementById("roles-section").style.display = "none";
+      document.getElementById("subsin-section").style.display = "none";
+      document.getElementById("overview-btn").classList.remove("record_tablinks");
+      if (document.getElementById("subsout-section").style.display = "none") {
+        document.getElementById("subsout-section").style.display = "block";
+      }
+    }
+    function clickSubsIn() {
+      document.getElementById("overview-section").style.display = "none";
+      document.getElementById("attachments-section").style.display = "none";
+      document.getElementById("roles-section").style.display = "none";
+      document.getElementById("subsout-section").style.display = "none";
+      document.getElementById("overview-btn").classList.remove("record_tablinks");
+      if (document.getElementById("subsin-section").style.display = "none") {
+        document.getElementById("subsin-section").style.display = "block";
+      }
+    }
+
+
+    var textarea = document.querySelectorAll("textarea");
+    var index = 0;
+    for (; index < textarea.length; index++) {
+      textarea[index].addEventListener("keydown", autosize);
+    }
+
+    function autosize() {
+      var el = this;
+      setTimeout(function () {
+        el.style.cssText = "height:auto; padding:0";
+        el.style.cssText = "height:" + el.scrollHeight + "px";
+      }, 0);
+    }
+
+    function displayTitle(e, isAutocomplete = false) {
+      console.log(e.labels[0]);
+      const elm = e.labels[0];
+      if (!isAutocomplete) {
+        elm.classList.add("form-control-label");
+      } else {
+        elm.classList.add("form-control-ac-label");
+        // elm.classList.add("form-control-textarea");
+      }
+      
+      e.placeholder = "Type here...";
+    }
+
+    function fillSvg(e) {
+      console.log(e);
+      e.querySelector(".svg-color").style.fill = "#247C4A";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+      document.querySelector(".sidenav-menu").style.display = "none";
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    // custom select code
+    var x, i, j, l, ll, selElmnt, a, b, c;
+    /* Look for any elements with the class "custom-select": */
+    x = document.getElementsByClassName("custom-select");
+    l = x.length;
+    for (i = 0; i < l; i++) {
+      selElmnt = x[i].getElementsByTagName("select")[0];
+      ll = selElmnt.length;
+      /* For each element, create a new DIV that will act as the selected item: */
+      a = document.createElement("DIV");
+      a.setAttribute("class", "select-selected");
+      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+      x[i].appendChild(a);
+      /* For each element, create a new DIV that will contain the option list: */
+      b = document.createElement("DIV");
+      b.setAttribute("class", "select-items select-hide");
+      for (j = 1; j < ll; j++) {
+        /* For each option in the original select element,
+create a new DIV that will act as an option item: */
+        c = document.createElement("DIV");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+        c.addEventListener("click", function (e) {
+          /* When an item is clicked, update the original select box,
+    and the selected item: */
+          var y, i, k, s, h, sl, yl;
+          lbl = this.parentNode.parentNode.getElementsByTagName("label")[0];
+          lbl.classList.add("form-control-label");
+          s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+          sl = s.length;
+          h = this.parentNode.previousSibling;
+          for (i = 0; i < sl; i++) {
+            if (s.options[i].innerHTML == this.innerHTML) {
+              console.log("this", this.parentNode);
+              this.parentNode.parentNode.classList.add("selected-font-black");
+              s.selectedIndex = i;
+              h.innerHTML = this.innerHTML;
+              y = this.parentNode.getElementsByClassName("same-as-selected");
+              yl = y.length;
+              for (k = 0; k < yl; k++) {
+                y[k].removeAttribute("class");
+              }
+              this.setAttribute("class", "same-as-selected");
+              break;
+            }
+          }
+          h.click();
+        });
+        b.appendChild(c);
+      }
+      x[i].appendChild(b);
+      a.addEventListener("click", function (e) {
+        /* When the select box is clicked, close any other select boxes,
+and open/close the current select box: */
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("select-hide");
+        this.classList.add('selected-item');
+        this.classList.toggle("select-arrow-active");
+      });
+    }
+
+    function closeAllSelect(elmnt) {
+      /* A function that will close all select boxes in the document,
+except the current select box: */
+      var x,
+        y,
+        i,
+        xl,
+        yl,
+        arrNo = [];
+      x = document.getElementsByClassName("select-items");
+      y = document.getElementsByClassName("select-selected");
+      xl = x.length;
+      yl = y.length;
+      for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+          arrNo.push(i);
+        } else {
+          y[i].classList.remove("select-arrow-active");
+        }
+      }
+      for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+          x[i].classList.add("select-hide");
+        }
+      }
+    }
+
+    function blurAllselect(elmnt) {
+      var x, xl, arrNo = [];
+      x = document.getElementsByClassName("select-selected");
+      xl = x.length
+      for (i = 0; i < xl; i++) {
+        x[i].classList.remove("selected-item");
+      }
+    }
+
+    /* If the user clicks anywhere outside the select box,
+then close all select boxes: */
+    document.addEventListener("click", blurAllselect);
+    document.addEventListener("click", closeAllSelect);
+    // function to add a selected value into "selected" object
+
+    const selected = {};
+
+    const getUsers = async () => {
+      const result = await fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then((json) => json);
+      const data = result.map((user) => user.name);
+
+      // add autocomplete to desired inputs
+      autocomplete(document.getElementById("related-contacts"), data);
+      autocomplete(document.getElementById("network-executive"), data);
+      autocomplete(document.getElementById("executive-producer"), data);
+      autocomplete(document.getElementById("writer"), data);
+      autocomplete(document.getElementById("director"), data);
+      autocomplete(document.getElementById("key-heads"), data);
+      autocomplete(document.getElementById("reg-cost"), data);
+      autocomplete(document.getElementById("actor-name"), data);
+      autocomplete(document.getElementById("representatives"), data);
+      autocomplete(document.getElementById("subsout-exec"), data);
+      autocomplete(document.getElementById("subin-rep"), data);
+      autocomplete(document.getElementById("subinBy"), data);
+      autocomplete(document.getElementById("subinTo"), data);
+
+
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("related-contacts"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("related-contacts").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("network-executive"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("network-executive").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("executive-producer"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("executive-producer").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("writer"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("writer").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("director"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("director").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("key-heads"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("key-heads").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("reg-cost"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("reg-cost").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("actor-name"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("actor-name").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("representatives"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("representatives").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("subsout-exec"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("subsout-exec").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("subin-rep"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("subin-rep").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("subinBy"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("subinBy").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+
+      // setting default value for an input elm
+      await setDefaultVal(document.getElementById("subinTo"), data[0]).then(
+        (res) => {
+          const node = document.getElementById("subinTo").nextElementSibling;
+          createDefaultChip(node);
+        }
+      );
+    };
+
+    // to set a default GET value for specified input elm
+    async function setDefaultVal(elm, val) {
+      elm.value = val;
+      let event = new Event("input", {
+        bubbles: true,
+        cancelable: true,
+      });
+
+      await elm.dispatchEvent(event);
+    }
+
+    // to create chip for deafult GET value
+    async function createDefaultChip(node) {
+      const toClick = node.querySelector("input");
+      let event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      await toClick.dispatchEvent(event);
+    }
+
+    // dummy array for autocomplete
+    const users = getUsers();
+    function addToSelected(elm, inputElm) {
+      console.log(elm, inputElm);
+      const selectedID = inputElm.parentNode.parentNode
+        .getElementsByTagName("input")[0]
+        .name.split("-")[0];
+      if (!selected[selectedID]) {
+        selected[selectedID] = [];
+      }
+
+      const hasAlready = selected[selectedID].indexOf(elm);
+
+      if (hasAlready !== -1) {
+        return;
+      }
+      selected[selectedID].push(elm);
+      const node = document.createElement("DIV");
+      node.setAttribute("class", "chip-span");
+      const imageNode = document.createElement("img");
+      imageNode.setAttribute("src", "../../assets/media/profile.svg");
+      imageNode.setAttribute("class", "chip-image");
+      const textNode = document.createElement("SPAN");
+      textNode.innerText = elm;
+      textNode.setAttribute("class", "chip-text");
+      const crossSpan = document.createElement("BUTTON");
+      crossSpan.setAttribute("class", "cross-span");
+      //crossSpan.innerText = "x";
+
+      // function to remove value from selected object
+      crossSpan.addEventListener("click", function (e) {
+        const toRemove = e.target.parentNode.firstChild;
+        const newArr = selected[selectedID].filter(function (val) {
+          return val === toRemove;
+        });
+        e.target.parentNode.parentNode.removeChild(
+          e.target.parentNode
+        );
+        selected[selectedID] = newArr;
+      });
+      //imageNode.insertAdjacentElement("beforeend", textNode);
+      //textNode.insertAdjacentElement("beforeend", crossSpan);
+
+      node.appendChild(imageNode);
+      node.appendChild(textNode);
+      node.appendChild(crossSpan);
+      //node.appendChild(crossSpan);
+      inputElm.parentNode.parentNode.prepend(node);
+    }
+
+    const countries = [
+      "Afghanistan",
+      "Albania",
+      "Algeria",
+      "Andorra",
+      "Angola",
+      "Anguilla",
+      "Antigua &amp; Barbuda",
+      "Argentina",
+      "Armenia",
+      "Aruba",
+      "Australia",
+      "Austria",
+      "Azerbaijan",
+      "Bahamas",
+      "Bahrain",
+      "Bangladesh",
+      "Barbados",
+      "Belarus",
+      "Belgium",
+      "Belize",
+      "Benin",
+      "Bermuda",
+      "Bhutan",
+      "Bolivia",
+      "Bosnia &amp; Herzegovina",
+      "Botswana",
+      "Brazil",
+      "British Virgin Islands",
+      "Brunei",
+      "Bulgaria",
+      "Burkina Faso",
+      "Burundi",
+      "Cambodia",
+      "Cameroon",
+      "Canada",
+      "Cape Verde",
+      "Cayman Islands",
+      "Central Arfrican Republic",
+      "Chad",
+      "Chile",
+      "China",
+      "Colombia",
+      "Congo",
+      "Cook Islands",
+      "Costa Rica",
+      "Cote D Ivoire",
+      "Croatia",
+      "Cuba",
+      "Curacao",
+      "Cyprus",
+      "Czech Republic",
+      "Denmark",
+      "Djibouti",
+      "Dominica",
+      "Dominican Republic",
+      "Ecuador",
+      "Egypt",
+      "El Salvador",
+      "Equatorial Guinea",
+      "Eritrea",
+      "Estonia",
+      "Ethiopia",
+      "Falkland Islands",
+      "Faroe Islands",
+      "Fiji",
+      "Finland",
+      "France",
+      "French Polynesia",
+      "French West Indies",
+      "Gabon",
+      "Gambia",
+      "Georgia",
+      "Germany",
+      "Ghana",
+      "Gibraltar",
+      "Greece",
+      "Greenland",
+      "Grenada",
+      "Guam",
+      "Guatemala",
+      "Guernsey",
+      "Guinea",
+      "Guinea Bissau",
+      "Guyana",
+      "Haiti",
+      "Honduras",
+      "Hong Kong",
+      "Hungary",
+      "Iceland",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Ireland",
+      "Isle of Man",
+      "Israel",
+      "Italy",
+      "Jamaica",
+      "Japan",
+      "Jersey",
+      "Jordan",
+      "Kazakhstan",
+      "Kenya",
+      "Kiribati",
+      "Kosovo",
+      "Kuwait",
+      "Kyrgyzstan",
+      "Laos",
+      "Latvia",
+      "Lebanon",
+      "Lesotho",
+      "Liberia",
+      "Libya",
+      "Liechtenstein",
+      "Lithuania",
+      "Luxembourg",
+      "Macau",
+      "Macedonia",
+      "Madagascar",
+      "Malawi",
+      "Malaysia",
+      "Maldives",
+      "Mali",
+      "Malta",
+      "Marshall Islands",
+      "Mauritania",
+      "Mauritius",
+      "Mexico",
+      "Micronesia",
+      "Moldova",
+      "Monaco",
+      "Mongolia",
+      "Montenegro",
+      "Montserrat",
+      "Morocco",
+      "Mozambique",
+      "Myanmar",
+      "Namibia",
+      "Nauro",
+      "Nepal",
+      "Netherlands",
+      "Netherlands Antilles",
+      "New Caledonia",
+      "New Zealand",
+      "Nicaragua",
+      "Niger",
+      "Nigeria",
+      "North Korea",
+      "Norway",
+      "Oman",
+      "Pakistan",
+      "Palau",
+      "Palestine",
+      "Panama",
+      "Papua New Guinea",
+      "Paraguay",
+      "Peru",
+      "Philippines",
+      "Poland",
+      "Portugal",
+      "Puerto Rico",
+      "Qatar",
+      "Reunion",
+      "Romania",
+      "Russia",
+      "Rwanda",
+      "Saint Pierre &amp; Miquelon",
+      "Samoa",
+      "San Marino",
+      "Sao Tome and Principe",
+      "Saudi Arabia",
+      "Senegal",
+      "Serbia",
+      "Seychelles",
+      "Sierra Leone",
+      "Singapore",
+      "Slovakia",
+      "Slovenia",
+      "Solomon Islands",
+      "Somalia",
+      "South Africa",
+      "South Korea",
+      "South Sudan",
+      "Spain",
+      "Sri Lanka",
+      "St Kitts &amp; Nevis",
+      "St Lucia",
+      "St Vincent",
+      "Sudan",
+      "Suriname",
+      "Swaziland",
+      "Sweden",
+      "Switzerland",
+      "Syria",
+      "Taiwan",
+      "Tajikistan",
+      "Tanzania",
+      "Thailand",
+      "Timor L'Este",
+      "Togo",
+      "Tonga",
+      "Trinidad &amp; Tobago",
+      "Tunisia",
+      "Turkey",
+      "Turkmenistan",
+      "Turks &amp; Caicos",
+      "Tuvalu",
+      "Uganda",
+      "Ukraine",
+      "United Arab Emirates",
+      "United Kingdom",
+      "United States of America",
+      "Uruguay",
+      "Uzbekistan",
+      "Vanuatu",
+      "Vatican City",
+      "Venezuela",
+      "Vietnam",
+      "Virgin Islands (US)",
+      "Yemen",
+      "Zambia",
+      "Zimbabwe",
+    ];
+    // autocomplete watcher function
+    function autocomplete(inp, arr) {
+      /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+      var currentFocus;
+      /*execute a function when someone writes in the text field:*/
+      inp.addEventListener("input", function (e) {
+        var a,
+          b,
+          i,
+          val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) {
+          return false;
+        }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+          /*check if the item starts with the same letters as the text field value:*/
+          if (
+            arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()
+          ) {
+            /*create a DIV element for each matching element:*/
+            b = document.createElement("DIV");
+            /*make the matching letters bold:*/
+            b.innerHTML =
+              "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].substr(val.length);
+            /*insert a input field that will hold the current array item's value:*/
+            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+            /*execute a function when someone clicks on the item value (DIV element):*/
+            b.addEventListener("click", function (e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              // selected.push(inp.value);
+              addToSelected(inp.value, this);
+              inp.value = "";
+              /*close the list of autocompleted values,
+            (or any other open lists of autocompleted values:*/
+              closeAllLists();
+            });
+            a.appendChild(b);
+          }
+        }
+      });
+      /*execute a function presses a key on the keyboard:*/
+      inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+          currentFocus++;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 38) {
+          //up
+          /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+          currentFocus--;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          /*If the ENTER key is pressed, prevent the form from being submitted,*/
+          e.preventDefault();
+          if (currentFocus > -1) {
+            /*and simulate a click on the "active" item:*/
+            if (x) x[currentFocus].click();
+          }
+        }
+      });
+      function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = x.length - 1;
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+      function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
+        }
+      }
+      function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+      except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+          if (elmnt != x[i] && elmnt != inp) {
+            x[i].parentNode.removeChild(x[i]);
+          }
+        }
+      }
+      /*execute a function when someone clicks in the document:*/
+      document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+      });
+    }
+
+    // add autocomplete watcher to elements by element id
+    autocomplete(document.getElementById("project-name"), countries);
+
+    autocomplete(document.getElementById("writers-name"), countries);
+    autocomplete(document.getElementById("associated-agency"), countries);
+    autocomplete(document.getElementById("submitted-by"), countries);
+    autocomplete(document.getElementById("representative"), countries);
+    autocomplete(document.getElementById("company-name"), countries);
+    autocomplete(document.getElementById("covered-by"), countries);
+
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+      document.querySelector(".sidenav-menu").style.display = "block";
+    }
+
+
+  </script>
+</body>
+
+</html>

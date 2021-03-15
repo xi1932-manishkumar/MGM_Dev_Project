@@ -1,0 +1,473 @@
+@import url("../main.css");
+
+.new-submission-welcome-title {
+  font-size: 60px;
+  font-family: "Poppins Light";
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .new-submission-welcome-title {
+    font-size: 20px;
+  }
+}
+
+.submission-form-container {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.submission-form form {
+  width: 50%;
+}
+
+.submission-form form input:not(.ac),
+.submission-form form select {
+  width: calc(100% - 30px);
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 24px;
+  border: 1px solid #ccc;
+  box-sizing: content-box;
+}
+
+.submission-form input:focus,
+.submission-form select:focus {
+  outline: none;
+  border-color: #d4ae36;
+  border-width: 2px;
+}
+
+@media screen and (max-width: 700px) {
+  .submission-form form {
+    width: 100%;
+  }
+
+  .submission-form form input,
+  .submission-form form select {
+    width: calc(100% - 30px);
+  }
+}
+
+.form-control-label {
+  position: relative;
+  display: inline !important;
+  visibility: visible !important;
+  top: 10px;
+  font-size: 11px;
+  background: #fff;
+  left: 10px;
+  padding: 5px;
+  text-transform: uppercase;
+  /* font: normal normal normal 12px/16px Poppins; */
+}
+
+.form-control-ac-label {
+  position: absolute;
+  display: inline !important;
+  visibility: visible !important;
+  top: -15px;
+  font-size: 12px;
+  background: #fff;
+  left: 10px;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+.form-control textarea {
+  resize: none;
+  border: 1px solid #ccc;
+  box-sizing: content-box;
+  width: calc(80% - 40px);
+  font-family: "Poppins Regular";
+  padding: 15px;
+  border-radius: 5px;
+  /* margin-top: 30px; */
+}
+
+@media screen and (max-width: 700px) {
+  .form-control textarea {
+    width: calc(100% - 30px);
+    padding: 15px;
+  }
+}
+
+.form-control.radio-control,
+.form-control.file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-control.radio-control {
+  color: #939191;
+}
+
+@media screen and (max-width: 900px) {
+  .form-control.radio-control,
+  .form-control.file-upload {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: baseline;
+  }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 17px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 9px;
+  background-color: #939191;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  /* bottom: 4px; */
+  bottom: -8px;
+  background-color: #fff;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #faf6e8;
+  box-shadow: none;
+}
+
+input:focus + .slider {
+  /* box-shadow: 0 0 1px #ccc; */
+  box-shadow: none;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #83744e;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+[type="file"] {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+  width: auto !important;
+}
+
+[type="file"] + label {
+  /* File upload button styles */
+  cursor: pointer;
+  color: #746745;
+  text-decoration: underline;
+}
+
+.form-cancel-btn,
+.form-submit-btn {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  border: 1px solid #ccc;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.form-submit-btn {
+  background: var(--theme-yellow);
+}
+.form-cancel-btn {
+  background: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  margin-left: 10px;
+  width: 156px;
+}
+
+.form-btn-row {
+  margin-top: 30px;
+  margin-bottom: 56px;
+}
+
+@media screen and (max-width: 1200px) {
+  .form-btn-row button {
+    margin-top: 10px;
+    display: block;
+    min-width: 100%;
+  }
+  .form-btn-row {
+    text-align: left;
+  }
+  .form-cancel-btn {
+    margin-left: 0px;
+  }
+}
+
+input:disabled {
+  background: #afafaf;
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  margin-top: -30px;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: #fff;
+  border: 1px solid #ccc !important;
+  border-radius: 5px !important;
+  font-size: 14px;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 40px;
+  right: 18px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #3d3a3a transparent transparent transparent;
+}
+
+.submission-type .select-selected::after {
+  position: absolute;
+  content: "";
+  top: 50px;
+  right: 18px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #3d3a3a transparent transparent transparent;
+}
+
+.submission-detail .select-selected::after {
+  position: absolute;
+  content: "";
+  top: 50px;
+  right: 18px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #3d3a3a transparent transparent transparent;
+}
+
+.evaluation-status .select-selected::after {
+  position: absolute;
+  content: "";
+  top: 38px;
+  right: 18px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #3d3a3a transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,
+.select-selected {
+  color: #757575;
+  padding: 12px;
+  /* border-radius: 5px; */
+  border: transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: var(--theme-yellow);
+}
+
+.selected-font-black .select-selected {
+  color: #000 !important;
+}
+
+.selected-item {
+  outline: none;
+  border-color: #d4ae36 !important;
+  border-width: 2px !important;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  width: calc(100% - 20px);
+  border-radius: 5px;
+}
+.autocomplete input {
+  border: 1px solid #ccc;
+  background: transparent;
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 12px;
+}
+.autocomplete input:focus {
+  border: none !important;
+}
+
+.autocomplete input[type="text"] {
+  background-color: transparent;
+  width: 185px;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: var(--theme-yellow);
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: var(--theme-yellow) !important;
+  /* color: #ffffff; */
+}
+
+.chip-span {
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 8px;
+  margin: 3px;
+}
+
+.cross-span {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  /* background: #757575; */
+  color: #ccc;
+}
+
+
+.form-parent {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  flex: 1;
+  max-height: 270px;
+  /* top: 0px; */
+  left: 1330px;
+  width: 590px;
+  border-radius: 4px 0px 0px 4px;
+  /* opacity: 1; */
+  
+  }
+
+/* ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+} */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 60px;
+  border: 1px solid #888;
+  width: 40%;
+  /* max-height: calc(100vh - 201px); */
+  height: 82%;
+  overflow: auto;
+  border-radius: 4px;
+}
